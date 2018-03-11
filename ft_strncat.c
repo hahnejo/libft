@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/10 19:04:12 by hjo               #+#    #+#             */
-/*   Updated: 2018/03/10 19:04:15 by hjo              ###   ########.fr       */
+/*   Created: 2018/03/10 19:50:32 by hjo               #+#    #+#             */
+/*   Updated: 2018/03/10 19:50:34 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strncat(char *s1, char *s2, int n)
 {
-	size_t			i;
-	unsigned char	*source;
-	unsigned char	*desti;
+	int	i;
+	int	s1_size;
 
 	i = 0;
-	source = (unsigned char *)src;
-	desti = (unsigned char *)dst;
-	while (i < n)
+	s1_size = 0;
+	while (s1[s1_size])
+		s1_size++;
+	while (i < n && s2[i])
 	{
-		desti[i] = source[i];
-		if (source[i] == (unsigned char)c)
-			return (dst + i + 1);
+		s1[s1_size] = s2[i];
+		s1_size++;
 		i++;
 	}
-	return (NULL);
+	s1[s1_size] = '\0';
+	return (s1);
 }
