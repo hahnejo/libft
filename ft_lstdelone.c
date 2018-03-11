@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 11:45:56 by hjo               #+#    #+#             */
-/*   Updated: 2018/02/22 11:45:58 by hjo              ###   ########.fr       */
+/*   Created: 2018/03/10 15:00:54 by hjo               #+#    #+#             */
+/*   Updated: 2018/03/10 15:00:55 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**	p is placeholder and it's to modify string *str.
-**	lower length to know how long to copy i to str.
-**	copy i to str thru placeholder p.
-**	return str.
+**	takes a link's pointer addr as param.
+**	then frees mem of link's content, using func del.
+**	but mem for next shouldn't be freed!
+**	ptr to link (that's freed) must be set to NULL (like memdel).
 */
 
-void		*ft_memset(void *b, int c, size_t len)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	unsigned char	*p;
-
-	p = b;
-	while (len-- != 0)
-		*p++ = (unsigned char)c;
-	return (b);
+	del(&((*alst)->content), (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

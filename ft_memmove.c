@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 11:45:56 by hjo               #+#    #+#             */
-/*   Updated: 2018/02/22 11:45:58 by hjo              ###   ########.fr       */
+/*   Created: 2018/03/10 19:31:20 by hjo               #+#    #+#             */
+/*   Updated: 2018/03/10 19:31:23 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	p is placeholder and it's to modify string *str.
-**	lower length to know how long to copy i to str.
-**	copy i to str thru placeholder p.
-**	return str.
-*/
-
-void		*ft_memset(void *b, int c, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*p;
+	char	*d;
+	char	*s;
+	size_t	i;
 
-	p = b;
-	while (len-- != 0)
-		*p++ = (unsigned char)c;
-	return (b);
+	d = (char *)dst;
+	s = (char *)src;
+	i = 0;
+	if (s < d)
+	{
+		while (len--)
+			d[len] = s[len];
+	}
+	else
+		ft_memcpy(d, s, len);
+	return (d);
 }

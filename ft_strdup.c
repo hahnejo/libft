@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 11:45:56 by hjo               #+#    #+#             */
-/*   Updated: 2018/02/22 11:45:58 by hjo              ###   ########.fr       */
+/*   Created: 2018/03/10 19:39:52 by hjo               #+#    #+#             */
+/*   Updated: 2018/03/10 19:39:54 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	p is placeholder and it's to modify string *str.
-**	lower length to know how long to copy i to str.
-**	copy i to str thru placeholder p.
-**	return str.
-*/
-
-void		*ft_memset(void *b, int c, size_t len)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*p;
+	int		i;
+	int		len;
+	char	*str;
 
-	p = b;
-	while (len-- != 0)
-		*p++ = (unsigned char)c;
-	return (b);
+	len = 0;
+	while (s1[len])
+		len++;
+	str = (char*)malloc(sizeof(*str) * (len + 1));
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	return (str);
 }
