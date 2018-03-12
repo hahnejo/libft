@@ -14,5 +14,5 @@
 
 int		ft_isascii(int c)
 {
-	return (c >= 0000 && c <= 0177)
+	return (c >= 0000 && c <= 0177);
 }
