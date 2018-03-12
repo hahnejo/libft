@@ -9,10 +9,9 @@
 #    Updated: 2018/02/20 15:55:17 by hjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-HEADER = libft.h
-OPTION = -c -I $(HEADER) -I.
-
-CC=gcc
+NAME=libft.a
+HEADER=libft.h
+OPTION=-c -I $(HEADER)
 CFLAGS=-Wall -Wextra -Werror
 
 CFILES=ft_putstr.c \
@@ -73,28 +72,19 @@ ft_lstadd.c \
 ft_lstiter.c \
 ft_lstmap.c \
 
-OBJ=$(CFILES: .c = .o)
+OBJ = $(CFILES:.c=.o)
 
-.PHONY: all
+$(NAME):
+			gcc $(CFLAGS) $(OPTION) $(CFILES)
+			ar rc $(NAME) $(OBJ)
+			ranlib $(NAME)
 
-all:
-	$(CC) $(CFLAGS) $(OPTION) $(CFILES)
-	ar rc libft.a $(OBJ)
-	ranlib libft.a
-
-.PHONY: clean
+all:		$(NAME)
 
 clean:
-	rm $(OBJ)
+			rm -rf $(OBJ)
 
-.PHONY: fclean
+fclean:		clean
+			rm -rf $(NAME)
 
-fclean:
-	make clean
-	rm libft.a
-
-.PHONY: re
-
-re:
-	make fclean
-	make
+re:			fclean all
