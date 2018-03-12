@@ -25,7 +25,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		{
 			if (needle[j + 1] == '\0')
 			{
-				return (haystack + i);
+				return ((char *)haystack + i);
 			}
 			j++;
 		}

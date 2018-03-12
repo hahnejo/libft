@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, char *s2, int n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	s1_size;
+	size_t	i;
+	size_t	s1_size;
 
 	i = 0;
 	s1_size = 0;
