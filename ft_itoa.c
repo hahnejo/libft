@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	is_neg(int *n, int *neg)
+static void	is_neg(int *n, int *neg)
 {
 	if (*n < 0)
 	{
