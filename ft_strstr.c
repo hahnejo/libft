@@ -26,7 +26,7 @@ char	*ft_strstr(const char *s1, const char *s2)
 	i = 0;
 	pos = 0;
 	len = 0;
-	while (haystack[i] != '\0')
+	while (s2[i] != '\0')
 		len++;
 	if (len == 0)
 		return ((char *)s1);

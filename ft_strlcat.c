@@ -12,24 +12,28 @@
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	unsigned	int i;
-	unsigned	int j;
-	unsigned	int k;
+/*
+**	copies and concatenate str w same input param and output.
+*/
 
-	i = 0;
-	while (dst[i] != '\0')
-		i++;
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t		i;
+	int			j;
+	size_t		dst_len;
+	size_t		src_len;
+
+	i = ft_strlen(dst);
 	j = 0;
-	while (src[j] != '\0' && j < dstsize)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen((char *)src);
+	if (dstsize < dst_len + 1)
+		return (src_len + dstsize);
+	if (dstsize > dst_len + 1)
 	{
-		dst[i + j] = src[j];
-		j++;
+		while (i < dstsize - 1)
+			*(dst + i++) = *(src + j++);
+		*(dst + i) = '\0';
 	}
-	dst[i + j] = '\0';
-	k = 0;
-	while (src[k] != '\0')
-		k++;
-	return (k + dstsize);
+	return (dst_len + src_len);
 }

@@ -12,7 +12,12 @@
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f) (char))
+/*
+**	applies the func f to each char of the str given as arg
+**	to create a fresh new str.
+*/
+
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	char	*fstr;
 	int		i;

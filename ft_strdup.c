@@ -12,21 +12,28 @@
 
 #include "libft.h"
 
+/*
+**	allocs suff mem for a copy of str s1, and copies, and returns ptr to it.
+*/
+
 char	*ft_strdup(const char *s1)
 {
 	int		i;
-	int		len;
-	char	*str;
+	int		j;
+	char	*s2;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	str = (char*)malloc(sizeof(*str) * (len + 1));
-	i = 0;
-	while (i < len)
+	if (!s1)
+		return (NULL);
+	i = ft_strlen((char *)s1);
+	s2 = malloc(sizeof(char) * (i + 1));
+	if (!s2)
+		return (NULL);
+	j = 0;
+	while (j < i)
 	{
-		str[i] = s1[i];
-		i++;
+		s2[j] = s1[j];
+		j++;
 	}
-	return (str);
+	s2[j] = '\0';
+	return (s2);
 }
