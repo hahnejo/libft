@@ -5,41 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/10 20:00:48 by hjo               #+#    #+#             */
-/*   Updated: 2018/03/10 20:00:50 by hjo              ###   ########.fr       */
+/*   Created: 2018/03/12 21:21:30 by hjo               #+#    #+#             */
+/*   Updated: 2018/03/12 22:23:34 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	locates first occurrence of null term str s2 in null termed str\
-*/
-
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_capitalize(char *s)
 {
+	char	*new;
 	int		i;
-	int		j;
-	int		k;
-	int		l;
 
-	if (!ft_strlen(s2))
-		return ((char *)s1);
-	i = -1;
-	good = 0;
-	while (*(s1 + ++i) && !l)
-	{
-		if (*(s1 + 1) == *(s2 + 0))
-		{
-			j = 0;
-			k = i;
-			l = 1;
-			while (*(s2 + j))
-				if (*(s2 + j++) != *(s1 + k++))
-					l = 0;
-			if (l)
-				return ((char *)s1 + i);
-		}
-	}
-	return (NULL);
+	if (!s)
+		return (NULL);
+	new = ft_strnew(ft_strlen(s));
+	new[0] = ft_toupper(s[0]);
+	i = 0;
+	while (s[++i])
+		if (!ft_isalnum(s[i - 1] && ft_isalnum(s[i]))
+			new[i] = ft_toupper(s[i]);
+		else
+			new[i] = s[i];
+		return (new);
 }
