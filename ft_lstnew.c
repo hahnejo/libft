@@ -16,7 +16,6 @@
 **	allocates and returns fresh link.
 **	var content and content_size are initialized by copy of param of func.
 **	if param content is null, var content is also null.
-**
 */
 
 t_list		*ft_lstnew(const void *content, size_t content_size)

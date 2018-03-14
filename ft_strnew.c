@@ -14,7 +14,6 @@
 
 /*
 **	allocate room for new null-term'ed string.
-**
 */
 
 char	*ft_strnew(size_t size)

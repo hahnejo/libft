@@ -22,7 +22,7 @@ size_t		ft_countwords(const char *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c)
-		w++;
+			w++;
 		while (s[i] != c && s[i + 1])
 			i++;
 		i++;

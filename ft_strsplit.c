@@ -29,11 +29,13 @@ char				**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	if (!s || !(w = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1))))
+	if (!s || !(w = (char **)malloc(sizeof(char *) *
+	(ft_countwords(s, c) + 1))))
 		return (NULL);
 	while (i < ft_countwords(s, c))
 	{
-		if (!(w[i] = (char *)malloc(sizeof(char) * (ft_wordlength(&s[k], c) + 1))))
+		if (!(w[i] = (char *)malloc(sizeof(char) *
+		(ft_wordlength(&s[k], c) + 1))))
 			return (NULL);
 		j = 0;
 		while (s[k] == c)

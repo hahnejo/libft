@@ -27,5 +27,5 @@ char	*ft_capitalize(char *s)
 			new[i] = ft_toupper(s[i]);
 		else
 			new[i] = s[i];
-		return (new);
+	return (new);
 }
