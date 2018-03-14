@@ -12,14 +12,28 @@
 
 #include "libft.h"
 
+/*
+**	compares up to n characters of the str s1 to those in s2.
+**	so an extra feature added to ft_strcmp.
+**	potentially useful in comparing DNA strings :)
+**	s1 and s2 will refer to regions of interest in sequence.
+*/
+
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	unsigned char	*seq1;
+	unsigned char	*seq2;
 
-	i = 0;
-	if (n == 0)
+	if (!n)
 		return (0);
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
-		i++;
-	return (s1[i] - s2[i]);
+	seq1 = (unsigned char *)s1;
+	seq2 = (unsigned char *)s2;
+	while ((*seq1 && (*seq1 == *seq2)) && --n)
+	{
+		if (*seq1 != *seq2)
+			return (*seq1 - *seq2);
+		seq1 += 1;
+		seq2 += 1;
+	}
+	return (*seq1 - *seq2);
 }

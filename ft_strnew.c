@@ -12,13 +12,20 @@
 
 #include "libft.h"
 
+/*
+**	allocate room for new null-term'ed string.
+**
+*/
+
 char	*ft_strnew(size_t size)
 {
 	char	*str;
 
-	str = (char*)malloc(size);
-	if (str == NULL)
+	str = (char *)malloc(sizeof(char) * size + 1);
+	if (!str)
 		return (NULL);
-	ft_memset(str, (int)'\0', size + 1);
+	str[size] = '\0';
+	while (size--)
+		str[size] = '\0';
 	return (str);
 }

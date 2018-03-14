@@ -28,7 +28,7 @@ int		ft_atoi(const char *str)
 		negative = 1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
+	while (*str && (str[i] >= '0') && (str[i] <= '9'))
 	{
 		nbr *= 10;
 		nbr += (int)str[i] - '0';

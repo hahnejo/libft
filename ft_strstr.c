@@ -13,33 +13,27 @@
 #include "libft.h"
 
 /*
-**	locates first occurrence of null term str s2 in null termed str\
+**	when we are trying to find certain substr which is saved at str s1,
+**	type substr that you want to find inside s2.
 */
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
 	int		i;
 	int		j;
-	int		k;
-	int		l;
 
-	if (!ft_strlen(s2))
-		return ((char *)s1);
-	i = -1;
-	good = 0;
-	while (*(s1 + ++i) && !l)
+	i = 0;
+	j = 0;
+	if (!s2[0])
+		return ((char *)&s1[i]);
+	while (s1[i])
 	{
-		if (*(s1 + 1) == *(s2 + 0))
-		{
-			j = 0;
-			k = i;
-			l = 1;
-			while (*(s2 + j))
-				if (*(s2 + j++) != *(s1 + k++))
-					l = 0;
-			if (l)
-				return ((char *)s1 + i);
-		}
+		while ((s1[i + j] == s2[j]) && s2[j])
+			j += 1;
+		if (!s2[j])
+			return ((char *)&s1[i]);
+		j = 0;
+		i += 1;
 	}
 	return (NULL);
 }

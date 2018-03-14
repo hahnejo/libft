@@ -19,21 +19,22 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*fstr;
-	int		i;
-	int		j;
+int		i;
+	size_t	len;
+	char	*str;
 
-	if (s && f)
+	if (!s)
+		return (NULL);
+	i = 0;
+	len = ft_strlen((char *)s);
+	str = (char *)malloc(sizeof(*s) * len + 1);
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		i = 0;
-		j = ft_strlen((char *)s);
-		fstr = (char *)malloc(j * sizeof(fstr));
-		while (s[i] != 0)
-		{
-			fstr[i] = f(s[i]);
-			i++;
-		}
-		return (fstr);
+		str[i] = f(s[i]);
+		i += 1;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }

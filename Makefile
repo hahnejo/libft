@@ -71,9 +71,9 @@ CFILES	=	ft_putstr.c \
 			ft_lstdel.c \
 			ft_lstadd.c \
 			ft_lstiter.c \
-			ft_lstmap.c
-
-OBJ		=	$(CFILES:ft%.c=ft%.o)
+			ft_lstmap.c \
+			ft_capitalize.c
+OBJ		=	$(CFILES:.c=.o)
 
 $(NAME):
 			gcc $(CFLAGS) $(OPTION) $(CFILES)
