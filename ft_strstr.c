@@ -19,8 +19,8 @@
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	j = 0;
