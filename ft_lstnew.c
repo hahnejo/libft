@@ -12,26 +12,29 @@
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
-{
-	t_list	*newlist;
+/*
+**	allocates and returns fresh link.
+**	var content and content_size are initialized by copy of param of func.
+**	if param content is null, var content is also null.
+**
+*/
 
-	newlist = (t_list *)malloc(sizeof(t_list));
-	if (newlist == NULL)
+t_list		*ft_lstnew(const void *content, size_t content_size)
+{
+	t_list		*new_link;
+
+	if (!(new_link = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
-	if (content == NULL)
+	if (!content || !content_size)
 	{
-		newlist->content = NULL;
-		newlist->content_size = 0;
+		new_link->content = NULL;
+		new_link->content_size = 0;
 	}
 	else
 	{
-		newlist->content = malloc(sizeof(content));
-		if (newlist->content == NULL)
-			return (NULL);
-		ft_memcpy((newlist->content), content, sizeof(content));
-		newlist->content_size = content_size;
+		new_link->content = ft_memalloc(content_size);
+		new_link->content = ft_memcpy(new_link->content, content, content_size);
+		new_link->content_size = content_size;
 	}
-	newlist->next = NULL;
-	return (newlist);
+	return (new_link);
 }

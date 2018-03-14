@@ -72,7 +72,9 @@ CFILES	=	ft_putstr.c \
 			ft_lstadd.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
-			ft_capitalize.c
+			ft_capitalize.c \
+			ft_wordlength.c \
+			ft_countwords.c
 OBJ		=	$(CFILES:.c=.o)
 
 $(NAME):
