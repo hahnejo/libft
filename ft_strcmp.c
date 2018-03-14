@@ -18,8 +18,8 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-	int		j;
+	unsigned char	*i;
+	unsigned char	*j;
 
 	i = (unsigned char *)s1;
 	j = (unsigned char *)s2;

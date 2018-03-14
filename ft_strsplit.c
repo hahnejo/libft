@@ -12,58 +12,37 @@
 
 #include "libft.h"
 
-static size_t		ft_count_word(char const *s, char c)
-{
-	size_t	i;
-	size_t	count;
-
-	count = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] == c)
-			i++;
-		if ((i == 1 && s[i] != c) || (s[i] != c && s[i - 1] == c))
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-static int			ft_is_begin_word(char const *s, size_t index, char c)
-{
-	if (index == 0 && s[index] != c)
-		return (1);
-	if (s[index] != c && s[index - 1] == c)
-		return (1);
-	return (0);
-}
+/*
+**	we will get rid of whatever recurring character specified in c
+**	from the string given as an arg in *s.
+**	if we have hello***world**, and wanting to rid of '*',
+**	use this function and ultimately give out broken words
+**	that were within '*'.
+*/
 
 char				**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	size_t	k;
-	char	**tab;
+	char	**w;
 
 	i = 0;
 	k = 0;
-	if ((tab = (char **)malloc(sizeof(char *) * ft_count_word(s, c))) == NULL)
+	if (!s || !(w = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1))))
 		return (NULL);
-	if (ft_count_word(s, c) == 0)
-		return (tab);
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	while (i < ft_wordcount(s, c))
 	{
+		if (!(w[i] = (char *)malloc(sizeof(char) * (ft_wordlen(&s[k], c) + 1))))
+			return (NULL);
 		j = 0;
-		if (ft_is_begin_word(s, i, c))
-		{
-			while (s[i + j] != c && s[i + j] != '\0')
-				j++;
-			tab[k++] = ft_strsub(s, i, j);
-		}
-		i++;
+		while (s[k] == c)
+			k += 1;
+		while (s[k] != c && s[k])
+			w[i][j++] = s[k++];
+		w[i][j] = '\0';
+		i += 1;
 	}
-	return (tab);
+	w[i] = NULL;
+	return (w);
 }

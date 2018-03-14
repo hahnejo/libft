@@ -12,23 +12,29 @@
 
 #include "libft.h"
 
+/*
+**	applies func f to each char of str passed as arg
+**	by giving index as first arg to create fresh str.
+*/
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*fstr;
 	unsigned int	i;
-	int				j;
+	size_t			len;
+	char			*str;
 
-	if (s && f)
+	if (!s)
+		return (NULL);
+	i = 0;
+	len = ft_strlen((char *)s);
+	str = (char *)malloc(sizeof(*s) * len + 1);
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		i = 0;
-		j = ft_strlen((char *)s);
-		fstr = (char *)malloc(j * sizeof(fstr));
-		while (s[i] != 0)
-		{
-			fstr[i] = f(i, s[i]);
-			i++;
-		}
-		return (fstr);
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }
