@@ -14,21 +14,23 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
+	char	*c;
 	size_t	i;
+	size_t	j;
 
+	i = -1;
+	c = (char *)s1;
 	if (*s2 == '\0')
-		return ((char*)s1);
-	i = 0;
-	while (*s1 && len)
+		return (c);
+	while (c[++i] != '\0')
 	{
-		if (*s1 == s2[i])
-			i++;
-		else
-			i = 0;
-		if (s2[i] == '\0')
-			return ((char *)(s1 - i + 1));
-		s1++;
-		len--;
+		j = 0;
+		while (s1[i + j] == s2[j] && i + j < len)
+		{
+			if (s2[j + 1] == '\0')
+				return (&c[i]);
+			++j;
+		}
 	}
 	return (NULL);
 }
