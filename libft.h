@@ -84,5 +84,6 @@ t_list			*ft_lstmap		(t_list *lst, t_list *(*f)(t_list *elem));
 char			*ft_capitalize	(char *s);
 size_t			ft_wordlength	(const char *s, char c);
 size_t			ft_countwords	(const char *s, char c);
+void			*ft_realloc		(void *ptr, size_t new_size);
 
 #endif
