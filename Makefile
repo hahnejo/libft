@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 NAME	=	libft.a
-HEADER	=	libft.h
+HEADER	=	../../include
 OPTION	=	-c -I $(HEADER)
 CFLAGS	=	-Wall -Wextra -Werror
 CFILES	=	$(wildcard *.c)
