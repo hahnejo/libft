@@ -1,0 +1,4 @@
+*.a
+*.DS_STORE
+*._DS_STORE
+*.o
