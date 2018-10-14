@@ -1,32 +1,28 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hjo <marvin@42.fr>                         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/02/20 15:55:15 by hjo               #+#    #+#              #
-#    Updated: 2018/02/20 15:55:17 by hjo              ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 NAME	=	libft.a
-HEADER	=	../../include
+HEADER	=	include
 OPTION	=	-c -I $(HEADER)
 CFLAGS	=	-Wall -Wextra -Werror
-CFILES	=	$(wildcard *.c)
-OBJ		=	$(CFILES:.c=.o)
-
-$(NAME):
-	gcc $(CFLAGS) $(OPTION) $(CFILES)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+CFILES	=	$(wildcard src/*.c)
+OBJ		=	$(patsubst src/%.c, obj/%.o, $(CFILES))
 
 all: $(NAME)
 
+$(NAME): obj $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+
+obj:
+	mkdir obj
+
+obj/%.o: src/%.c
+	gcc $(CFLAGS) $(OPTION) -c -o $@ $<
+
 clean:
-	rm -rf $(OBJ)
+	rm -rf obj
 
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all
+re: clean all
+
+.PHONY: all re clean fclean
