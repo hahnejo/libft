@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 double	ft_atof(char *str)
 {
 	int sign;
@@ -27,11 +25,4 @@ double	ft_atof(char *str)
 	while (++i < count)
 		ans /= 10;
 	return (sign * ans);
-}
-
-int main()
-{
-	char *s = "-0.54534";
-	printf("%f", ft_atof(s));
-	return (0);
 }

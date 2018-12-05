@@ -6,7 +6,7 @@
 /*   By: hjo <hjo@student.42.us.org>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 22:38:44 by hjo               #+#    #+#             */
-/*   Updated: 2018/03/11 23:40:07 by hjo              ###   ########.fr       */
+/*   Updated: 2018/12/04 19:42:49 by hjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ size_t			ft_countwords	(const char *s, char c);
 void			*ft_realloc		(void *ptr, size_t new_size);
 int				get_next_line	(const int fd, char **line);
 int				get_line		(const int fd, char **arr, char **line);
+int				ft_atof			(char *str);
 
 #endif
