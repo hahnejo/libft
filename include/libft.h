@@ -94,5 +94,6 @@ int				get_next_line	(const int fd, char **line);
 int				get_line		(const int fd, char **arr, char **line);
 int				ft_atof			(char *str);
 int				ft_isspace		(char c);
+char			*ft_strstrip	(char *str);
 
 #endif
