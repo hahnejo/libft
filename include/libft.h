@@ -93,5 +93,6 @@ void			*ft_realloc		(void *ptr, size_t new_size);
 int				get_next_line	(const int fd, char **line);
 int				get_line		(const int fd, char **arr, char **line);
 int				ft_atof			(char *str);
+int				ft_isspace		(char c);
 
 #endif
